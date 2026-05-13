@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Delikatesy Smaczek · Polish delicatessen · The Mall, Luton</title>
+<meta name="description" content="A Polish delicatessen in The Mall, Luton. Breads, smoked sausage, cheese, pierogi, pastry and coffee. Find us in St George's Square, LU1 2TL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4ECD8;
+  --paper-soft:#EFE3C9;
+  --kraft:#D9C29A;
+  --ink:#1C1208;
+  --ink-soft:#2E2014;
+  --crimson:#8C1C20;
+  --crimson-bright:#B0292E;
+  --amber:#C68A2E;
+  --moss:#5C5A28;
+  --rule:rgba(28,18,8,.18);
+  --rhythm:clamp(1rem,.78rem + .55vw,1.125rem);
+  --font-display:"Libre Baskerville",Georgia,"Times New Roman",serif;
+  --font-body:"Work Sans",ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:var(--rhythm);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;z-index:50;
+  background-image:
+    radial-gradient(rgba(28,18,8,.07) 1px,transparent 1.2px),
+    radial-gradient(rgba(140,28,32,.05) 1px,transparent 1.4px);
+  background-size:3px 3px,7px 7px;
+  background-position:0 0,1px 2px;
+  mix-blend-mode:multiply;opacity:.55;
+}
+::selection{background:var(--crimson);color:var(--paper)}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0}
+p{margin:0;text-wrap:pretty;hyphens:auto}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ── frame ─────────────────────────────────────────── */
+.shell{
+  max-width:1240px;margin:0 auto;
+  padding:1.25rem clamp(1rem,3vw,2.5rem) 0;
+}
+.top{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding-bottom:1rem;border-bottom:1px solid var(--rule);
+  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+}
+.top .lozenge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--crimson);color:var(--paper);
+  padding:.3rem .55rem;border-radius:2px;font-weight:600;
+}
+.top .lozenge::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--paper);box-shadow:0 0 0 2px var(--crimson);
+}
+.top .small{opacity:.7}
+.top a:hover{color:var(--crimson)}
+
+/* ── masthead ──────────────────────────────────────── */
+.masthead{padding:clamp(2rem,5vw,4.5rem) 0 0}
+.flag{
+  display:flex;align-items:center;gap:.65rem;
+  font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;
+  margin-bottom:1rem;color:var(--ink-soft);
+}
+.flag .bar{
+  width:34px;height:14px;display:inline-block;position:relative;
+  border:1px solid rgba(28,18,8,.4);
+}
+.flag .bar::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:50%;
+  background:var(--crimson);
+}
+.title{
+  font-size:clamp(4.2rem,17vw,16rem);
+  line-height:.86;font-weight:700;
+  margin:0 0 -.05em -.04em;
+  letter-spacing:-.045em;
+  font-family:var(--font-display);
+  color:var(--ink);
+}
+.title em{
+  font-style:italic;font-weight:400;color:var(--crimson);
+  letter-spacing:-.04em;
+}
+.subtitle-row{
+  display:grid;grid-template-columns:1fr;gap:1.25rem;
+  border-top:1px solid var(--rule);
+  border-bottom:3px solid var(--ink);
+  padding:1.1rem 0 1.2rem;
+  margin-top:.4rem;
+}
+@media (min-width:780px){
+  .subtitle-row{grid-template-columns:1.4fr 1fr 1fr;align-items:end;gap:2rem}
+}
+.kicker{
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(1.15rem,1.6vw,1.5rem);line-height:1.3;
+}
+.kicker .dot{color:var(--crimson)}
+.meta{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+.meta span{display:block;color:var(--ink-soft);margin-bottom:.2rem}
+.meta strong{font-weight:600;letter-spacing:.06em}
+
+/* ── marquee ───────────────────────────────────────── */
+.marquee{
+  overflow:hidden;
+  border-bottom:1px solid var(--rule);
+  padding:1rem 0;
+  margin:0;
+  --speed:42s;
+}
+.marquee__track{
+  display:inline-flex;gap:3rem;white-space:nowrap;
+  animation:scroll var(--speed) linear infinite;
+  font-family:var(--font-display);font-style:italic;
+  font-size:clamp(1.3rem,2vw,1.9rem);color:var(--ink-soft);
+}
+.marquee__track span{display:inline-flex;align-items:center;gap:3rem}
+.marquee__track span::after{
+  content:"✦";color:var(--crimson);font-style:normal;
+}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .marquee__track{animation:none}
+}
+
+/* ── lede ──────────────────────────────────────────── */
+.lede{
+  display:grid;grid-template-columns:1fr;gap:2.2rem;
+  padding:clamp(2.5rem,6vw,5rem) 0;
+  border-bottom:1px solid var(--rule);
+}
+@media (min-width:880px){
+  .lede{grid-template-columns:5fr 7fr;gap:4rem}
+}
+.lede h2{
+  font-size:clamp(1.6rem,2.4vw,2rem);font-weight:400;font-style:italic;
+  color:var(--crimson);max-width:18ch;line-height:1.2;
+}
+.lede .body{font-size:clamp(1.05rem,1.1vw,1.2rem);max-width:48ch}
+.lede .body p + p{margin-top:1.1em}
+.lede .pl{
+  font-family:var(--font-display);font-style:italic;color:var(--ink-soft);
+  border-left:2px solid var(--crimson);padding:.2rem 0 .2rem 1rem;
+  margin-top:1.6em;font-size:1.05rem;
+}
+
+/* ── what we sell · broadsheet list ─────────────────── */
+.shop{padding:clamp(3rem,7vw,6rem) 0 clamp(2.5rem,5vw,4rem)}
+.shop-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;
+  border-bottom:3px solid var(--ink);padding-bottom:.8rem;margin-bottom:2rem;
+}
+.shop-head h2{
+  font-size:clamp(2.2rem,4.5vw,3.6rem);letter-spacing:-.02em;
+}
+.shop-head .label{
+  font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);
+}
+.aisles{
+  display:grid;grid-template-columns:1fr;gap:1.3rem;
+}
+@media (min-width:680px){.aisles{grid-template-columns:1fr 1fr}}
+@media (min-width:1020px){.aisles{grid-template-columns:repeat(3,1fr)}}
+.aisle{
+  border-top:1px solid var(--rule);
+  padding:1.2rem 0 1.3rem;
+  display:grid;grid-template-columns:auto 1fr;gap:1rem 1.2rem;
+  align-items:baseline;
+}
+@supports (animation-timeline:view()){
+  .aisle{animation:rise both;animation-timeline:view();animation-range:entry 0% cover 25%}
+  @keyframes rise{from{opacity:0;transform:translateY(1.6rem)}to{opacity:1;transform:translateY(0)}}
+}
+.aisle .num{
+  font-family:var(--font-display);font-style:italic;color:var(--crimson);
+  font-size:1.2rem;letter-spacing:-.02em;
+}
+.aisle h3{
+  font-size:clamp(1.4rem,1.9vw,1.8rem);font-weight:700;line-height:1.1;
+  letter-spacing:-.01em;
+}
+.aisle h3 small{
+  display:block;font-family:var(--font-display);font-style:italic;font-weight:400;
+  color:var(--ink-soft);font-size:.95rem;letter-spacing:0;margin-top:.15rem;
+}
+.aisle p{
+  grid-column:2;margin-top:.55rem;font-size:.97rem;color:var(--ink-soft);
+}
+
+/* ── slab ──────────────────────────────────────────── */
+.slab{
+  background:var(--ink);color:var(--paper);
+  margin-top:clamp(2rem,5vw,4rem);
+  padding:clamp(3rem,7vw,6rem) clamp(1.25rem,3vw,2.5rem);
+  border-top:8px solid var(--crimson);
+}
+.slab-inner{max-width:1240px;margin:0 auto}
+.slab h2{
+  font-size:clamp(2rem,4.2vw,3.4rem);max-width:18ch;line-height:1.05;
+  margin-bottom:1.4rem;
+}
+.slab h2 em{color:var(--amber);font-style:italic;font-weight:400}
+.slab .panels{
+  display:grid;grid-template-columns:1fr;gap:1.5rem;
+  margin-top:2.4rem;
+}
+@media (min-width:780px){.slab .panels{grid-template-columns:1fr 1fr;gap:2.4rem}}
+.panel{
+  border-top:1px solid rgba(244,236,216,.25);padding-top:1.3rem;
+}
+.panel h3{
+  font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;
+  font-family:var(--font-body);font-weight:600;color:var(--amber);
+  margin-bottom:.7rem;
+}
+.panel p{font-size:1.08rem;line-height:1.55;max-width:38ch}
+.panel a{
+  display:inline-flex;align-items:center;gap:.5rem;
+  margin-top:.8rem;font-weight:600;
+  border-bottom:1px solid var(--amber);padding-bottom:.15rem;
+  transition:color .25s;
+}
+.panel a:hover{color:var(--amber)}
+.panel a::after{content:"→";transition:transform .25s}
+.panel a:hover::after{transform:translateX(4px)}
+
+/* ── find us ───────────────────────────────────────── */
+.find{
+  padding:clamp(3rem,7vw,6rem) 0;
+  display:grid;grid-template-columns:1fr;gap:2.5rem;
+}
+@media (min-width:880px){.find{grid-template-columns:1fr 1.2fr;gap:4rem}}
+.find-head h2{
+  font-size:clamp(2.4rem,5vw,4rem);line-height:.95;letter-spacing:-.025em;
+}
+.find-head .pl{
+  font-family:var(--font-display);font-style:italic;color:var(--crimson);
+  font-size:1.4rem;margin-top:.5rem;
+}
+.address-card{
+  border:1px solid var(--rule);
+  padding:clamp(1.4rem,2.5vw,2rem);
+  background:var(--paper-soft);
+  display:grid;gap:1.3rem;
+}
+.address-card .row{
+  display:grid;grid-template-columns:auto 1fr;gap:1rem 1.4rem;align-items:baseline;
+  padding-bottom:1.2rem;border-bottom:1px dashed var(--rule);
+}
+.address-card .row:last-of-type{border-bottom:0;padding-bottom:0}
+.address-card .row .k{
+  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:600;
+}
+.address-card .row .v{
+  font-family:var(--font-display);font-size:1.15rem;line-height:1.35;
+}
+.address-card .row .v em{font-style:italic;color:var(--crimson)}
+.address-card .row .v small{
+  display:block;font-family:var(--font-body);font-size:.9rem;
+  color:var(--ink-soft);margin-top:.2rem;letter-spacing:0;
+}
+.address-card .note{
+  font-size:.85rem;color:var(--ink-soft);font-style:italic;
+  border-top:1px solid var(--rule);padding-top:1rem;
+}
+
+/* ── colophon ──────────────────────────────────────── */
+.colophon{
+  border-top:3px solid var(--ink);
+  margin-top:clamp(2rem,4vw,3rem);
+  padding:clamp(2rem,4vw,3rem) 0 2rem;
+  display:grid;gap:1.6rem;
+  font-size:.85rem;
+}
+@media (min-width:780px){
+  .colophon{grid-template-columns:1.5fr 1fr 1fr;align-items:start}
+}
+.colophon .mark{
+  font-family:var(--font-display);font-size:1.6rem;line-height:1;
+}
+.colophon .mark em{font-style:italic;color:var(--crimson)}
+.colophon h4{
+  font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+  font-family:var(--font-body);font-weight:600;color:var(--ink-soft);
+  margin-bottom:.5rem;
+}
+.colophon a:hover{color:var(--crimson)}
+.colophon .fineprint{
+  grid-column:1/-1;border-top:1px solid var(--rule);padding-top:1rem;
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="top">
+    <span class="lozenge">Otwarte · Open</span>
+    <span class="small">St George's Sq · LU1 2TL</span>
+    <a href="https://www.facebook.com/delikatesysmaczek/">Facebook ↗</a>
+  </header>
+
+  <section class="masthead">
+    <div class="flag" aria-label="Polish delicatessen in Luton">
+      <span class="bar" aria-hidden="true"></span>
+      <span>Polski Sklep · Polish Delicatessen</span>
+    </div>
+
+    <h1 class="title">Smacz<em>ek</em></h1>
+
+    <div class="subtitle-row">
+      <p class="kicker">A little taste of home<span class="dot">.</span> A Polish delicatessen tucked inside The Mall, Luton — bread baked the way it should be, sausage cut to order, pastry that ruins your willpower.</p>
+      <div class="meta">
+        <span>Where</span>
+        <strong>The Mall · Luton</strong>
+        <strong>St George's Sq · LU1 2TL</strong>
+      </div>
+      <div class="meta">
+        <span>What</span>
+        <strong>Polish food</strong>
+        <strong>Bakery · Deli · Pantry</strong>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Chleb · Bread</span>
+    <span>Wędliny · Smoked sausage</span>
+    <span>Sery · Cheese</span>
+    <span>Pierogi · Dumplings</span>
+    <span>Słodycze · Sweets</span>
+    <span>Kawa · Coffee</span>
+    <span>Chleb · Bread</span>
+    <span>Wędliny · Smoked sausage</span>
+    <span>Sery · Cheese</span>
+    <span>Pierogi · Dumplings</span>
+    <span>Słodycze · Sweets</span>
+    <span>Kawa · Coffee</span>
+  </div>
+</div>
+
+<div class="shell">
+
+  <section class="lede">
+    <h2>Same shopping centre. Different shopping list.</h2>
+    <div class="body">
+      <p>Smaczek is a Polish word with no clean English translation — it means something closer to <em>a tasty little something</em>. A flavour. A treat. The bite of rye bread you finished without noticing.</p>
+      <p>You walk past us in The Mall: dark wooden shelves, paper bags, the colour of pickled red cabbage in the chiller. Inside is the food a Polish family pantry runs on — fresh rye and sourdough loaves, kabanos and krakowska from the slicer, twaróg, kefir, real żurek, pierogi for the freezer, a counter of cakes nobody can pronounce until they've eaten one.</p>
+      <p class="pl">Codziennie świeże, codziennie z domu. Zapraszamy.</p>
+    </div>
+  </section>
+
+  <section class="shop">
+    <div class="shop-head">
+      <h2>What's in the shop</h2>
+      <span class="label">A short tour, in order of temptation</span>
+    </div>
+
+    <div class="aisles">
+
+      <article class="aisle">
+        <span class="num">01</span>
+        <h3>Chleb &amp; bułki <small>Breads &amp; rolls</small></h3>
+        <p>Dark rye, light wheat, sourdough loaves baked to a Polish recipe — the kind of crust your toaster doesn't know what to do with.</p>
+      </article>
+
+      <article class="aisle">
+        <span class="num">02</span>
+        <h3>Wędliny <small>Smoked &amp; cured meats</small></h3>
+        <p>Kabanos, krakowska, kiełbasa swojska, smoked ham — sliced fresh from the counter or wrapped to go.</p>
+      </article>
+
+      <article class="aisle">
+        <span class="num">03</span>
+        <h3>Sery &amp; nabiał <small>Cheese &amp; dairy</small></h3>
+        <p>Twaróg for cheesecake, oscypek when it's around, kefir, śmietana, real butter that tastes like butter.</p>
+      </article>
+
+      <article class="aisle">
+        <span class="num">04</span>
+        <h3>Pierogi &amp; gotowe <small>Dumplings &amp; ready food</small></h3>
+        <p>Pierogi (ruskie, mięsem, z kapustą), gołąbki, bigos, żurek — fresh and frozen — for the days you don't want to cook.</p>
+      </article>
+
+      <article class="aisle">
+        <span class="num">05</span>
+        <h3>Słodycze <small>Sweets &amp; pastry</small></h3>
+        <p>Pączki, sernik, makowiec, szarlotka, Prince Polo, krówki, ptasie mleczko — childhood, by the gram.</p>
+      </article>
+
+      <article class="aisle">
+        <span class="num">06</span>
+        <h3>Spiżarnia <small>The pantry</small></h3>
+        <p>Pickles, sauerkraut, chrzan, ogórki kiszone, barszcz, syrups, jams, kompoty — the long-life shelf every Polish kitchen leans on.</p>
+      </article>
+
+    </div>
+  </section>
+
+</div>
+
+<section class="slab">
+  <div class="slab-inner">
+    <h2>Polish food in <em>The Mall</em> — without driving to Slough.</h2>
+    <div class="panels">
+      <div class="panel">
+        <h3>For Polish families</h3>
+        <p>Everything for the Sunday table — chleb, wędliny, sery, pierogi, a babka for after. No big-supermarket version of "Polish food". The real one.</p>
+        <a href="https://www.facebook.com/delikatesysmaczek/">See what's in this week</a>
+      </div>
+      <div class="panel">
+        <h3>For the curious</h3>
+        <p>Never tried żurek, makowiec or a proper smoked kiełbasa? Come in, ask, point at something — we'll happily talk you through it.</p>
+        <a href="https://lutonfrasersplus.co.uk/store-a-z/delikatesy-smaczek/">Find us in The Mall directory</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="shell">
+
+  <section class="find">
+    <div class="find-head">
+      <h2>Find us.</h2>
+      <p class="pl">Zapraszamy.</p>
+    </div>
+    <div class="address-card">
+      <div class="row">
+        <span class="k">In the<br>centre</span>
+        <span class="v">The Mall, Luton<br><small>One of the independent food stores inside the shopping centre. Look out for the Polish signage and the long deli counter.</small></span>
+      </div>
+      <div class="row">
+        <span class="k">Address</span>
+        <span class="v">St George's Square<br>Luton <em>LU1 2TL</em></span>
+      </div>
+      <div class="row">
+        <span class="k">Online</span>
+        <span class="v">
+          <a href="https://www.facebook.com/delikatesysmaczek/">facebook.com/delikatesysmaczek</a><br>
+          <small>The shop posts new bakes and weekly arrivals on Facebook.</small>
+        </span>
+      </div>
+      <div class="row">
+        <span class="k">Centre<br>hours</span>
+        <span class="v">Set by The Mall<br>
+          <small>Smaczek opens with the centre. Check The Mall's current opening times before you visit — late nights and bank holidays sometimes shift.</small>
+        </span>
+      </div>
+      <p class="note">This site lists what we stock and where to find us — the latest opening hours, holiday closures and weekly specials live on our Facebook page.</p>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <div>
+      <div class="mark">Delikatesy <em>Smaczek</em></div>
+      <p style="margin-top:.6rem;max-width:34ch;color:var(--ink-soft)">A Polish delicatessen in The Mall, Luton. Independent. Family-run. <span lang="pl">Polski sklep w Luton.</span></p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <p>The Mall, Luton<br>St George's Square<br>LU1 2TL</p>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <p>
+        <a href="https://www.facebook.com/delikatesysmaczek/">Facebook ↗</a><br>
+        <a href="https://lutonfrasersplus.co.uk/store-a-z/delikatesy-smaczek/">The Mall directory ↗</a>
+      </p>
+    </div>
+    <div class="fineprint">
+      <span>© Delikatesy Smaczek · Luton</span>
+      <span>Polski Sklep · Polish Delicatessen</span>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
